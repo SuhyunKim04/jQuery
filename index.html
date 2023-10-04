@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height:200px;
+            border:1px solid #d8d8d8;
+            border-radius:10px;
+            padding:30px;
+            margin:30px;
+            text-align:center;
+        }
+
+        .dim {
+            position:fixed;left:0;top:0;right:0;bottom:0;
+            background-color:rgba(0,0,0,0.6);
+            display:none;
+        }
+        .modal {
+            display:none;
+            background-color:#fff;
+            border-radius:10px;
+            padding:50px;
+            width:50%;
+            height:30%;
+            position:fixed;
+            left:50%;top:50%;
+            transform:translate(-50%, -50%);
+        }
+    </style>
+    <script src="./lib/jquery-1.12.1.js"></script>
+    <script>
+        // console.log(jQuery);
+ 
+        $(function() {
+            // $('h1').css('color','blue').css('font-size', '50px')
+           
+            const $h1 = $('h1')
+
+            $('.jq').on('click', function() {
+                $h1.css({
+                    color : 'green',
+                    fontSize: '50px'
+                })
+            })
+            
+            $('.show').click(function() {
+            //    $h1.show();
+            // $h1.fadeIn();
+            $h1.slideDown(500);
+            })
+            
+            $('.hide').click(function() {
+            //    $h1.hide();
+            // $h1.fadeOut();
+            $h1.slideUp(100);
+            })
+            
+            $('.toggle').click(function() {
+            //    $h1.toggle();
+            // $h1.fadeToggle();
+            $h1.slideToggle();
+            })
+
+
+            $('dt').click(function() {
+                console.log($(this))
+                $(this).next().fadeOut(200); 
+                $(this).next().fadeIn(500);
+            })
+
+            $('.openModal').click(function() {
+                $('.dim').fadeIn(100);
+                $('.modal').fadeIn(500);
+            })
+
+            $('.dim').click(function() {
+                $(this).fadeOut(500);
+                $('.modal').fadeOut(200);
+            })
+
+        })
+       
+    </script>
+</head>
+<body>
+    <button type="button" class="openModal">OPEN modal</button>
+    <dl>
+        <dt>1. title</dt>
+        <dd>Description</dd>
+        <dt>2. title</dt>
+        <dd>Description</dd>
+        <dt>3. title</dt>
+        <dd>Description</dd>
+    </dl>
+    <div class="dim"></div>
+    <div class="modal">
+        modal
+    </div>
+
+    // show, hide, toggle
+    // fadeIn, fadeOut, fadeToggle
+    // slideDown, slideUp, slideToggle
+    <hr>
+    <button class="hide">hide, out</button>
+    <button class="show">show, in</button>
+    <button class="toggle">toggle</button>
+    <div class="box">
+
+        <h1>jQuery header</h1>
+    </div>
+    <button type="button" class="jq">jQuery click</button>    
+    <hr>
+     
+    <h2>Javascript Header</h2>
+    <button type="button" class="js">JS click</button>
+    <script>
+        const h2 = document.querySelector('h2');
+        // const js = document.querySelectorAll('button');
+        const js = document.querySelector('.js')
+        js.addEventListener('click',() => {
+            h2.style.color = 'red';
+            h2.style.fontSize = '50px'  
+        })
+
+
+
+    </script>
+</body>
+</html>
