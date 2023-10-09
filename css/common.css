@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ol, ul, li, fieldset, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+em, i, address {
+  font-style: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+fieldset {
+  border: none;
+}
+
+.blind, legend {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+input[type=text]:focus {
+  background-color: #eef3f5;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 2px solid #bbb;
+  background-color: #ebebeb;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  padding: 2px;
+  background-clip: content-box;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+input[type=checkbox]:checked {
+  background-color: red;
+}
+
+.slide-wrap {
+  outline: 1px solid red;
+  width: 90%;
+  margin: 50px auto;
+  height: 300px;
+  position: relative;
+}
+.slide-wrap li {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+}
+.slide-wrap li img {
+  object-fit: cover;
+  height: 100%;
+}
+
+/*# sourceMappingURL=common.css.map */
