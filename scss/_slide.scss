@@ -1,20 +1,37 @@
 
+div{
+    .slide-wrap {
+        outline:1px solid red;
+        width:90%;
+        margin:50px auto;
+        height:300px;
+        position:relative;
 
-.slide-wrap {
-    outline:1px solid red;
-    width:90%;
-    margin:50px auto;
-    height:300px;
-    position:relative;
-
-    li{
-        position: absolute;
-        top:0;right:0;left:0;bottom:0;
-        display: none;
-        
-        img{
-            object-fit: cover;
-            height:100%;
+        li{
+            position: absolute;
+            top:0;right:0;left:0;bottom:0;
+            display: none;
+            
+            img{
+                object-fit: cover;
+                height:100%;
+                width: 100%;
+            }
         }
+    }
+
+    .next{
+        position: absolute;
+        top:calc(300px / 2);
+        right:0;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .pre{
+        position: absolute;
+        top:calc(300px / 2);
+        font-size: 20px;
+        font-weight: 600;
     }
 }

@@ -96,14 +96,14 @@ input[type=checkbox]:checked {
   background-color: red;
 }
 
-.slide-wrap {
+div .slide-wrap {
   outline: 1px solid red;
   width: 90%;
   margin: 50px auto;
   height: 300px;
   position: relative;
 }
-.slide-wrap li {
+div .slide-wrap li {
   position: absolute;
   top: 0;
   right: 0;
@@ -111,9 +111,23 @@ input[type=checkbox]:checked {
   bottom: 0;
   display: none;
 }
-.slide-wrap li img {
+div .slide-wrap li img {
   object-fit: cover;
   height: 100%;
+  width: 100%;
+}
+div .next {
+  position: absolute;
+  top: 150px;
+  right: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+div .pre {
+  position: absolute;
+  top: 150px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=common.css.map */
