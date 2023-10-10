@@ -1,11 +1,11 @@
 
-div{
+.container{
+    position: relative;
+    width:90%;
+    outline:1px solid red;
+    margin:50px auto;
     .slide-wrap {
-        outline:1px solid red;
-        width:90%;
-        margin:50px auto;
         height:300px;
-        position:relative;
 
         li{
             position: absolute;
@@ -19,19 +19,44 @@ div{
             }
         }
     }
-
-    .next{
+    .pager{
         position: absolute;
-        top:calc(300px / 2);
-        right:0;
-        font-size: 20px;
+        top:50%;
+        z-index:999;
+        transform:translateY(-50%);
         font-weight: 600;
+        font-size: 12px;
+        background-color:#1b1b1b;color:#fff;
+        padding:10px;
+
+    }
+    .next{
+        right:20px;
+        
     }
 
     .pre{
+        left:20px;
+    }
+
+    .indicator{ 
         position: absolute;
-        top:calc(300px / 2);
-        font-size: 20px;
-        font-weight: 600;
+        bottom:20px;
+        left:50%;
+        transform: translateX(-50%);
+        display:flex;
+        column-gap:10px;
+ 
+
+        button {
+            background-color:rgba(#fff,0.8);
+            font-size:10px;font-weight:600;
+            border-radius:50%;
+            width:10px;height:10px;
+
+            &.on {
+                background-color:red;
+            }
+        }
     }
 }

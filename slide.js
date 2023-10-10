@@ -1,28 +1,91 @@
- 
+$('.test').append(`<h1>append</h1>`)
+$('.test').prepend(`<h1>prepand</h1>`)
+
+
 function slideFade() {
+    let $container = $('.container');
    let $slides = $('.slide-wrap').find('li');
+   let $indi = $('.indicator');
    let count = $slides.length;
    let now = 0;
    const duration = 1500;
+   const $pager = $container.find('.pager')
+   let $dots;
+   let timer;
+ 
+    $pager.click( function(e) {
+        console.dir($(this))
+        $(this).hasClass('next') ? nextShow() : prevShow();
+    })
+    
+    startFade();
+    init();
+
+
+    function init() {
+        createIndicator();
+        $dots = $indi.find('button'); 
+        $slides.eq(now).fadeIn(); 
+        $dots.eq(now).addClass('on')
+    }
+
+    $dots.click( function(e) {  
+        update($(this).index())
+       
+    })
+
     
 
-   $slides.eq(now).fadeIn();
-//    setInterval(nextShow,duration);
+   function createIndicator() {
+       for (let i=1; i <= count; i++){
+        $indi.append(`<button type=button><span class="blind">${i}</span></button>`)
+        }
+   }
 
 
-   function nextShow() {
-    console.log(`now : ${now}`)
-    // console.log(`next : ${now + 1}`)
+
+    $container.on({
+        mouseenter : stopFade,
+        mouseleave : startFade
+    })
+    //    $container.mouseenter(stopFade);
+    //    $container.mouseleave(startFade);
+
+   function startFade() {
+       timer = setInterval(nextShow, duration);
+       
+   }
+
+   function stopFade() {
+       clearInterval(timer);
+     
+   }
+
+
+   function nextShow() { 
     let next = (now + 1) % count;
-    $slides.eq(now).fadeOut();
-    $slides.eq(next).fadeIn();
+    update(next)
+     
+   }
 
-    now = next
+   function prevShow() { 
+    let prev = (now - 1) % count;
+    update(prev)
     
+   }
+
+   function update(slide) {
+    $slides.eq(now).fadeOut();
+    $slides.eq(slide).fadeIn();
+    now = slide;
+    $dots.removeClass('on')
+    $dots.eq(now).addClass('on')
    }
 }
 
 slideFade();
+
+
 
 function btnText() {
     let $btn = $('.btn');
@@ -43,11 +106,11 @@ function btnText() {
         if(e.target.nodeName == 'SPAN'){
             e.target.style.background = 'red'
         } else(console.log('not span'))
-        
     })
 }
-
 btnText();
+
+
 
 let $ps = $('.box').find('p');
 $ps.css('color', 'red')
@@ -73,3 +136,6 @@ $ps.last().next().click(function() {
 })
 
 $('p').nextUntil('div').css('background-color','pink')
+
+
+
