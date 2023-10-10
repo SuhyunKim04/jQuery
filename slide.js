@@ -53,25 +53,21 @@ function slideFade() {
 
    function startFade() {
        timer = setInterval(nextShow, duration);
-       
    }
 
    function stopFade() {
        clearInterval(timer);
-     
    }
 
 
    function nextShow() { 
     let next = (now + 1) % count;
     update(next)
-     
    }
 
    function prevShow() { 
     let prev = (now - 1) % count;
     update(prev)
-    
    }
 
    function update(slide) {
