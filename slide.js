@@ -8,7 +8,7 @@ function slideFade() {
    let $indi = $('.indicator');
    let count = $slides.length;
    let now = 0;
-   const duration = 1500;
+   const duration = 2000;
    const $pager = $container.find('.pager')
    let $dots;
    let timer;
